@@ -1,0 +1,162 @@
+/* UNIVERSAL SELECTOR */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* BODY */
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f4f4;
+    color: #222;
+    line-height: 1.6;
+}
+
+
+/* HEADER */
+
+header {
+    background-color: #1d3557;
+    color: white;
+}
+
+
+/* COURSE TITLE */
+
+#course-title {
+    display: block;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 20px;
+}
+
+
+/* NAVIGATION */
+
+.navigation {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    background-color: #000;
+    flex-wrap: wrap;
+}
+
+
+.navigation li {
+    flex: 1 1 auto;
+}
+
+
+.navigation a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 15px;
+    text-align: center;
+
+    transition: background-color 0.3s ease;
+}
+
+
+/* HOVER EFFECT */
+
+.navigation a:hover {
+    background-color: #457b9d;
+}
+
+
+/* MAIN */
+
+main {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+}
+
+
+/* MAIN HEADING */
+
+main h1 {
+    grid-column: 1 / 3;
+    text-align: center;
+    color: #1d3557;
+}
+
+
+/* CARDS */
+
+.card {
+    background-color: white;
+    border-radius: 10px;
+
+    overflow: hidden;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+.card h2 {
+    background-color: #1d3557;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+
+
+.card img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+
+.card p {
+    padding: 15px;
+}
+
+
+/* FOOTER */
+
+footer {
+    background-color: #1d3557;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+
+/* LAST MODIFIED */
+
+#lastModified {
+    color: #ffb703;
+    margin-top: 10px;
+}
+
+
+/* RESPONSIVE DESIGN */
+
+@media screen and (max-width: 768px) {
+
+    main {
+        grid-template-columns: 1fr;
+    }
+
+    main h1 {
+        grid-column: 1 / 2;
+    }
+
+    .navigation {
+        flex-direction: column;
+    }
+
+}
