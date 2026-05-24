@@ -1,0 +1,30 @@
+@media (min-width: 600px) {
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 40px;
+    }
+
+    nav ul {
+        flex-direction: row;
+        gap: 10px;
+    }
+
+    /* 1. Target the main element to use grid layout */
+    main {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+    }
+
+    /* 2. Force the heading to stretch across the full width and center its text */
+    main h1 {
+        grid-column: 1 / -1;
+        /* Spans across all available grid columns */
+        text-align: center;
+        /* Centers the heading text horizontally */
+        margin-bottom: 20px;
+        /* Pushes the temple cards down */
+    }
+}
