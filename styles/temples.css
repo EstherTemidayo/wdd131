@@ -9,42 +9,68 @@ body {
 }
 
 /* mobile view */
+
+/* 1. MERGED HEADER (Combined rules from lines 10 & 116) */
 header {
-    display: grid;
-    grid-gap: 1rem;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding: 20px;
-    border: 1px solid rgba(0, 0, 0, 0.065);
+    margin: 0 auto;
     background-color: #ffffff;
     border-bottom: 1px solid rgba(0, 0, 0, 0.065);
     transition: box-shadow 0.2s ease-in, background-color 0.3s ease-out;
 }
 
-/*hover effect : Grey tint below the header*/
+/* Hover effect: Grey tint below the header */
 header:hover {
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    box-shadow: 0 0 30px #333;
+    background-color: #f5f5f5;
+    box-shadow: 0 4px 6px -2px rgba(0, 0, 0, 0.15);
 }
 
+/* 2. MERGED H1 (Combined rules from lines 22 & 31) */
 h1 {
     font-size: 2rem;
+    color: #38087a;
     text-align: center;
 }
 
-header,
-main {
-    margin: 0 auto;
-}
-
-h1 {
+h2 {
     font-size: 2rem;
     color: #38087a;
 }
 
+/* Style the hamburger button */
+#menuButton {
+    display: block;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    color: #38087a;
+    cursor: pointer;
+    padding: 0 10px;
+}
+
+/* 3. MERGED NAV UL (Combined rules from lines 41 & 133) */
 nav ul {
+    display: none;
+    /* Hidden by default on mobile */
     list-style: none;
-    display: flex;
     flex-direction: column;
     padding: 0;
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+}
+
+/* Show the menu block when the user clicks the hamburger button */
+nav ul.open {
+    display: flex;
 }
 
 nav a {
@@ -63,6 +89,7 @@ nav a:hover {
     color: #f1eded;
 }
 
+/* MAIN COLUMN Layout */
 main {
     max-width: 1200px;
     margin: 0 auto;
@@ -84,21 +111,21 @@ figure {
     border-radius: 6px;
     overflow: hidden;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-    transition: box-shadow 0.02s ease-in, background-color 0.02s ease-out;
+    transition: box-shadow 0.2s ease-in, background-color 0.2s ease-out;
 }
 
-/*hover effect : Grey tint below the header*/
+/* Hover effect for figures */
 figure:hover {
     border: 1px solid rgba(0, 0, 0, 0.05);
-    box-shadow: 0 0 30px #333;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 figure img {
     width: 100%;
     height: 250px;
-    /* to force a uniform vertical height */
+    /* Forces a uniform vertical height */
     object-fit: cover;
-    /* to crop cleanly so pictures do not look stretched */
+    /* Crops cleanly so pictures do not look stretched */
     display: block;
 }
 
@@ -109,46 +136,12 @@ figcaption {
     color: #333;
 }
 
+/* LAST MODIFIED */
 
-/* Position the header content to allow hamburger button placement */
-header {
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+#lastModified {
+    color: #ffb703;
+    margin-top: 10px;
 }
-
-/* Style the hamburger button */
-#menuButton {
-    display: block;
-    /* Shows only on mobile viewports */
-    font-size: 2rem;
-    background: none;
-    border: none;
-    color: #38087a;
-    cursor: pointer;
-    padding: 0 10px;
-}
-
-/* Hide the navigation menu by default on mobile devices */
-nav ul {
-    display: none;
-    list-style: none;
-    flex-direction: column;
-    width: 100%;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: #ffffff;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    z-index: 10;
-}
-
-/* Show the menu block when the user clicks the hamburger button */
-nav ul.open {
-    display: flex;
-}
-
 
 /* FOOTER */
 footer {

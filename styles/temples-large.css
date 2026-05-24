@@ -19,7 +19,7 @@
     }
 
     /* 2. Force the heading to stretch across the full width and center its text */
-    main h1 {
+    main h2 {
         grid-column: 1 / -1;
         /* Spans across all available grid columns */
         text-align: center;
