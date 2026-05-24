@@ -63,10 +63,6 @@ nav a:hover {
     color: #f1eded;
 }
 
-.active {
-    color: yellow;
-}
-
 main {
     max-width: 1200px;
     margin: 0 auto;
@@ -88,6 +84,13 @@ figure {
     border-radius: 6px;
     overflow: hidden;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.02s ease-in, background-color 0.02s ease-out;
+}
+
+/*hover effect : Grey tint below the header*/
+figure:hover {
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 0 30px #333;
 }
 
 figure img {
@@ -105,6 +108,47 @@ figcaption {
     font-weight: bold;
     color: #333;
 }
+
+
+/* Position the header content to allow hamburger button placement */
+header {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Style the hamburger button */
+#menuButton {
+    display: block;
+    /* Shows only on mobile viewports */
+    font-size: 2rem;
+    background: none;
+    border: none;
+    color: #38087a;
+    cursor: pointer;
+    padding: 0 10px;
+}
+
+/* Hide the navigation menu by default on mobile devices */
+nav ul {
+    display: none;
+    list-style: none;
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+}
+
+/* Show the menu block when the user clicks the hamburger button */
+nav ul.open {
+    display: flex;
+}
+
 
 /* FOOTER */
 footer {

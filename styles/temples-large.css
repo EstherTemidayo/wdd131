@@ -28,3 +28,21 @@
         /* Pushes the temple cards down */
     }
 }
+
+@media (min-width: 600px) {
+
+    /* Hide the hamburger button completely on larger desktop screens */
+    #menuButton {
+        display: none;
+    }
+
+    /* Force the navigation options back into horizontal view on desktop */
+    nav ul {
+        display: flex !important;
+        /* Overrides the mobile display:none status */
+        flex-direction: row;
+        position: static;
+        box-shadow: none;
+        gap: 10px;
+    }
+}
