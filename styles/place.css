@@ -1,4 +1,13 @@
-/* 1. Global Reset Rules should always go at the very top */
+/* 1. ROOT VARIABLES (Defined exactly once at the top) */
+:root {
+    --primary-color: #38087a;
+    --text-color: #333333;
+    --background-color: #f0f2f5;
+    --card-background: #ffffff;
+    --border-color: #e0e0e0;
+}
+
+/* 2. GLOBAL RESET RULES */
 * {
     margin: 0;
     padding: 0;
@@ -7,14 +16,14 @@
 
 body {
     font-family: "Roboto", sans-serif;
-    background-color: #f0f2f5;
-    color: #333333;
+    background-color: var(--background-color);
+    color: var(--text-color);
     line-height: 1.6;
 }
 
-/* HEADER STYLE */
+/* 3. HEADER STYLE */
 header {
-    background-color: #38087a;
+    background-color: var(--primary-color);
     color: #ffffff;
     text-align: center;
     padding: 1.5rem 1rem;
@@ -25,14 +34,14 @@ header h1 {
     font-size: 2rem;
 }
 
-/* MAIN BODY CONTAINER */
+/* 4. MAIN BODY CONTAINER */
 main {
     max-width: 1200px;
     margin: 0 auto;
     padding: 1rem;
 }
 
-/* HERO CONTAINER */
+/* 5. HERO CONTAINER & IMAGE PROPERTIES */
 .hero-container {
     width: 100%;
     margin-bottom: 1.5rem;
@@ -41,38 +50,44 @@ main {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* TARGET THE IMAGE INSIDE THE CONTAINER */
 .hero-container img {
     width: 100%;
     height: 300px;
-    /* Sets a reasonable, fixed height for mobile screens */
+    /* Keeps your preferred mobile height restriction */
     max-height: 400px;
     /* Prevents the image from stretching too tall */
     object-fit: cover;
-    /* Crops the photo cleanly so it does not look warped */
+    /* Crops the photo cleanly so it isn't zoomed or warped */
     display: block;
 }
 
-/* CARD BLOCKS (Data Box & Weather Box layout) */
+/* 6. INFORMATION DISPLAY CARDS */
 .data-box,
 .weather-box {
-    background-color: #ffffff;
+    background-color: var(--card-background);
     padding: 1.5rem;
     margin-bottom: 1.5rem;
     border-radius: 8px;
-    border: 1px solid #e0e0e0;
+    border: 1px solid var(--border-color);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 main h2 {
-    color: #38087a;
+    color: var(--primary-color);
     font-size: 1.5rem;
     margin-bottom: 1rem;
     border-bottom: 2px solid rgba(56, 8, 122, 0.1);
     padding-bottom: 0.5rem;
 }
 
-/* DATA LIST STYLE */
+/* 7. REQUIRED ::after PSEUDO-ELEMENT (*/
+main h2::after {
+    content: "📍";
+    font-size: 1.2rem;
+}
+
+
+/* 8. DATA LIST STRUCTURING */
 .data-box ul {
     list-style: none;
     padding: 0;
@@ -87,29 +102,27 @@ main h2 {
     border-bottom: none;
 }
 
-/* WEATHER ITEM ROW STRUCTURE */
+/* 9. WEATHER ELEMENT STRUCTURE */
 .weather-data p {
     padding: 0.5rem 0;
 }
 
-/* CONSOLIDATED RESPONSIVE WEATHER ICON VISIBILITY TOGGLES */
+/* 10. RESPONSIVE WEATHER ICONS */
 .desktop-weather-icon {
     display: none;
-    /* Hides emoji on mobile layout viewports */
+    /* Hides text emoji on mobile screens */
 }
 
 .mobile-weather-icon {
     display: block;
-    /* Displays your vector graphic on mobile views */
+    /* Shows the cloud vector graphic */
     width: 60px;
-    /* Kept your preferred 60px width */
     height: auto;
     margin: 0.5rem 0 1rem 0;
 }
 
-/* FOOTER STYLE */
 footer {
-    background-color: #38087a;
+    background-color: var(--primary-color);
     color: #f1eded;
     text-align: center;
     padding: 1.5rem;
