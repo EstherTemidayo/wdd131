@@ -1,0 +1,59 @@
+@media (min-width: 600px) {
+    .desktop-weather-icon {
+        display: inline;
+        /* Shows the emoji icon right alongside the text heading */
+    }
+
+    .mobile-weather-icon {
+        display: none;
+        /* Hides the mobile SVG layout vector card graphic */
+    }
+}
+
+/* Executed only on viewport screens 600px wide or larger */
+@media (min-width: 600px) {
+
+    /* HEADER */
+    header {
+        padding: 2rem;
+    }
+
+    header h1 {
+        font-size: 2.5rem;
+    }
+
+    /* DASHBOARD GRID GRIDDING FOR MAIN CONTENT PANEL */
+    main {
+        display: grid;
+        /* Splits layout into a 3-column structural blueprint grid layout */
+        grid-template-columns: 2fr 1fr;
+        gap: 24px;
+        padding: 2rem 1rem;
+    }
+
+    /* FORCES THE HERO IMAGE ROW TO COVER FULL WIDTH STRETCH */
+    .hero-container {
+        grid-column: 1 / -1;
+        margin-bottom: 0;
+    }
+
+    /* CARDS LAYOUT */
+    .data-box,
+    .weather-box {
+        margin-bottom: 0;
+        /* Clears mobile margins since grid handles spacing */
+        height: 100%;
+        /* Ensures both columns have an equal matching height panel box */
+    }
+
+    /* REVERSED ICON VISIBILITY FOR LARGE VIEWS */
+    .desktop-weather-icon {
+        display: inline;
+        /* Reveals your emoji character text layout inline */
+    }
+
+    .mobile-weather-icon {
+        display: none;
+        /* Safely hides your mobile vector graphic */
+    }
+}

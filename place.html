@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WDD 131 - Lagos, Nigeria</title>
+    <meta name="description" content="Data and weather display project: WDD 131- week 3.">
+    <meta name="author" content="Esther Temidayo Olukayode">
+
+    <!-- Stylesheet Linking -->
+    <link rel="stylesheet" href="styles/place.css">
+    <!-- large layout stylesheet inclusion for media query -->
+    <link rel="stylesheet" href="styles/place-large.css" media="(min-width: 600px)">
+
+    <!-- JavaScript (with defer attribute) -->
+    <script src="scripts/place.js" defer></script>
+</head>
+
+<body>
+
+    <header>
+        <h1>Lagos, Nigeria</h1>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <div class="hero-container">
+            <picture>
+                <!-- FIXED: Pointed the desktop source rule to your actual file name so it displays on large screens -->
+                <source srcset="images/lagos_ikoyi.webp" media="(min-width: 600px)">
+                <!-- Default small image version loaded on mobile phones -->
+                <img src="images/lagos_ikoyi.webp" alt="Scenic view of Lekki-Ikoyi Link Bridge in Lagos" loading="lazy">
+            </picture>
+        </div>
+
+        <!-- Data Box Section (Required Facts Card) -->
+        <section class="data-box">
+            <h2>Lagos Facts</h2>
+            <ul>
+                <li><strong>State:</strong> Lagos State</li>
+                <li><strong>Population:</strong> ~16 Million</li>
+                <li><strong>Language:</strong> English, Yoruba</li>
+                <li><strong>Currency:</strong> Naira (₦)</li>
+                <li><strong>Time Zone:</strong> WAT (UTC+1)</li>
+            </ul>
+        </section>
+
+        <!-- Weather Box Section with actual metric placeholders -->
+        <section class="weather-box">
+            <h2>
+                Weather
+                <!-- Desktop Emoji Icon: Hidden on mobile, visible on desktop -->
+                <span class="desktop-weather-icon">⛅</span>
+            </h2>
+
+            <!-- Mobile SVG Icon: Visible on mobile, hidden on desktop -->
+            <img src="images/cloud.svg" class="mobile-weather-icon" alt="Weather condition icon">
+
+            <div class="weather-data">
+                <p><strong>Temperature:</strong> <span id="temperature">31</span>°C</p>
+                <p><strong>Condition:</strong> Partly Cloudy</p>
+                <p><strong>Wind Speed:</strong> <span id="windSpeed">14</span> km/h</p>
+                <p><strong>Wind Chill:</strong> <span id="windChill"></span></p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; <span id="currentyear"></span> 🌸 Temidayo Olukayode 🌸 Nigeria</p>
+        <p id="lastModified"></p>
+    </footer>
+
+</body>
+
+</html>
