@@ -4,7 +4,6 @@
     box-sizing: border-box;
 }
 
-/* 1. BODY RULES - Consolidated to force footer down smoothly */
 body {
     font-family: "Roboto", sans-serif;
     background-color: #f5f5f7;
@@ -14,7 +13,7 @@ body {
     min-height: 100vh;
 }
 
-/* HEADER STYLE */
+/* HEADER STYLE (Rule #3) */
 header {
     position: relative;
     display: flex;
@@ -25,6 +24,7 @@ header {
     border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
+/* MENU BUTTON STYLE (Rule #4) */
 #menuButton {
     display: block;
     font-size: 2rem;
@@ -34,6 +34,7 @@ header {
     cursor: pointer;
 }
 
+/* NAV UL STYLE (Rule #5) */
 nav ul {
     display: none;
     list-style: none;
@@ -51,6 +52,7 @@ nav ul.open {
     display: flex;
 }
 
+/* NAV A STYLE (Rule #7) */
 nav a {
     display: block;
     color: #38087a;
@@ -66,7 +68,7 @@ nav a.active {
     color: #ffffff;
 }
 
-/* 2. MAIN RULES - Consolidated to use grid and flex-grow cleanly */
+/* MAIN BLOCKS STYLE (Rule #9) */
 main {
     max-width: 1200px;
     width: 100%;
@@ -86,7 +88,7 @@ main h2 {
     margin-bottom: 10px;
 }
 
-/* TEMPLE CARD ITEM DESIGN (Fixed Stretching & White Space Gaps) */
+/* TEMPLE CARD ITEM DESIGN */
 figure {
     background-color: #ffffff;
     border: 1px solid #e0e0e0;
@@ -98,9 +100,7 @@ figure {
     text-align: center;
     width: 100%;
     max-width: 360px;
-    /* FIXED: Stops the lone card from stretching infinitely wide */
     margin: 0 auto;
-    /* FIXED: Centers the lone card perfectly under the heading */
 }
 
 .card-content {
@@ -120,7 +120,6 @@ figure {
     color: #222222;
 }
 
-/* Purple, Uppercase Label Styling matching screenshot */
 .card-content p span {
     font-weight: bold;
     color: #5c32a8;
@@ -129,17 +128,15 @@ figure {
     letter-spacing: 0.5px;
 }
 
-/* Image formatting at the base of the card */
 figure img {
     width: 100%;
     height: 250px;
     object-fit: cover;
     display: block;
     margin-top: auto;
-    /* Keeps image resting firmly at the bottom rim */
 }
 
-/* FOOTER */
+/* FOOTER STYLE */
 footer {
     text-align: center;
     padding: 20px;

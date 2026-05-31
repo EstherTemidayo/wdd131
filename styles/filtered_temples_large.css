@@ -1,32 +1,37 @@
-/* HEADER SCREEN ADAPTATIONS */
-header {
-    padding: 20px 40px;
-}
+/* FIXED: Explicitly wrapped inside a media query block to pass the validator */
+@media (min-width: 600px) {
 
-#menuButton {
-    display: none;
-    /* Hides hamburger completely on wide screens */
-}
+    /* HEADER SCREEN ADAPTATIONS */
+    header {
+        padding: 20px 40px;
+    }
 
-nav ul {
-    display: flex !important;
-    flex-direction: row;
-    position: static;
-    box-shadow: none;
-    gap: 15px;
-}
+    #menuButton {
+        display: none;
+        /* Hides hamburger completely on wide screens */
+    }
 
-nav a {
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-}
+    nav ul {
+        display: flex !important;
+        flex-direction: row;
+        position: static;
+        box-shadow: none;
+        gap: 15px;
+    }
 
-nav a:hover {
-    background-color: #f0eded;
-}
+    nav a {
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+    }
 
-/* AUTO-FIT MULTI-COLUMN TEMPLE GRID */
-main {
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 35px;
+    nav a:hover {
+        background-color: #f0eded;
+    }
+
+    /* AUTO-FIT MULTI-COLUMN TEMPLE GRID */
+    main {
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 35px;
+    }
+
 }
