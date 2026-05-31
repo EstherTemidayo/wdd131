@@ -1,0 +1,149 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 1. BODY RULES - Consolidated to force footer down smoothly */
+body {
+    font-family: "Roboto", sans-serif;
+    background-color: #f5f5f7;
+    color: #333333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* HEADER STYLE */
+header {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #ffffff;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+#menuButton {
+    display: block;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    color: #38087a;
+    cursor: pointer;
+}
+
+nav ul {
+    display: none;
+    list-style: none;
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+}
+
+nav ul.open {
+    display: flex;
+}
+
+nav a {
+    display: block;
+    color: #38087a;
+    text-align: center;
+    padding: 1rem;
+    text-decoration: none;
+    font-size: larger;
+    font-weight: bolder;
+}
+
+nav a.active {
+    background-color: #38087a;
+    color: #ffffff;
+}
+
+/* 2. MAIN RULES - Consolidated to use grid and flex-grow cleanly */
+main {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    flex: 1;
+}
+
+main h2 {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: #38087a;
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+}
+
+/* TEMPLE CARD ITEM DESIGN (Fixed Stretching & White Space Gaps) */
+figure {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+    max-width: 360px;
+    /* FIXED: Stops the lone card from stretching infinitely wide */
+    margin: 0 auto;
+    /* FIXED: Centers the lone card perfectly under the heading */
+}
+
+.card-content {
+    padding: 24px 20px;
+}
+
+.card-content h3 {
+    font-size: 1.6rem;
+    color: #111111;
+    margin-bottom: 12px;
+    font-weight: 700;
+}
+
+.card-content p {
+    margin: 6px 0;
+    font-size: 0.95rem;
+    color: #222222;
+}
+
+/* Purple, Uppercase Label Styling matching screenshot */
+.card-content p span {
+    font-weight: bold;
+    color: #5c32a8;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
+}
+
+/* Image formatting at the base of the card */
+figure img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+    margin-top: auto;
+    /* Keeps image resting firmly at the bottom rim */
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    background-color: #38087a;
+    color: #f1eded;
+}

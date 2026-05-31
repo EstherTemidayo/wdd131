@@ -1,0 +1,32 @@
+/* HEADER SCREEN ADAPTATIONS */
+header {
+    padding: 20px 40px;
+}
+
+#menuButton {
+    display: none;
+    /* Hides hamburger completely on wide screens */
+}
+
+nav ul {
+    display: flex !important;
+    flex-direction: row;
+    position: static;
+    box-shadow: none;
+    gap: 15px;
+}
+
+nav a {
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+}
+
+nav a:hover {
+    background-color: #f0eded;
+}
+
+/* AUTO-FIT MULTI-COLUMN TEMPLE GRID */
+main {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 35px;
+}

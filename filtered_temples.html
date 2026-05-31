@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WDD 131 - Filtered LDS Temple Album</title>
+    <meta name="description"
+        content="Using MediaQuery to create a responsive, dynamically filtered LDS Temple website.">
+    <meta name="author" content="Olukayode Esther">
+
+    <!-- stylesheet and google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- FIXED: Updated paths to match your new renamed CSS files -->
+    <link rel="stylesheet" href="styles/filtered_temples.css">
+    <link rel="stylesheet" href="styles/filtered_temples_large.css" media="(min-width: 600px)">
+
+    <!-- FIXED: Updated path to match your new renamed JavaScript file -->
+    <script src="scripts/filtered_temples.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <h1>Temple Album</h1>
+        <button id="menuButton" aria-label="Toggle Menu">☰</button>
+
+        <nav>
+            <ul id="animenu">
+                <!-- Added "active" class to Home by default -->
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="#">Old</a></li>
+                <li><a href="#">New</a></li>
+                <li><a href="#">Large</a></li>
+                <li><a href="#">Small</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Added an id so JavaScript can dynamically update this title based on the active menu filter -->
+        <h2 id="page-title">Home</h2>
+
+        <!-- DYNAMICALLY GENERATED FIGURE CARDS WILL BE AUTOMATICALLY INJECTED HERE BY JAVASCRIPT -->
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>
+            &copy;
+            <span id="currentyear"></span>
+            🌸 Temidayo Olukayode 🌸 Nigeria
+        </p>
+        <p id="lastModified"></p>
+    </footer>
+
+</body>
+
+</html>
