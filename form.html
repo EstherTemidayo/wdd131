@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WDD 131 - Product Review Form</title>
+    <link rel="stylesheet" href="styles/form.css">
+    <script src="scripts/form.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <h1>Product Review</h1>
+    </header>
+    <main>
+        <form method="get" action="review.html">
+            <!-- Product Selection -->
+            <label for="productName">Product Name <span class="required">*</span></label>
+            <select id="productName" name="productName" required>
+                <option value="" disabled selected>Select a Product ...</option>
+            </select>
+
+            <!-- Overall Rating -->
+            <fieldset>
+                <legend>Overall Rating <span class="required">*</span></legend>
+                <div class="rating-group">
+                    <label><input type="radio" name="rating" value="1" required> ⭐</label>
+                    <label><input type="radio" name="rating" value="2"> ⭐⭐</label>
+                    <label><input type="radio" name="rating" value="3"> ⭐⭐⭐</label>
+                    <label><input type="radio" name="rating" value="4"> ⭐⭐⭐⭐</label>
+                    <label><input type="radio" name="rating" value="5"> ⭐⭐⭐⭐⭐</label>
+                </div>
+            </fieldset>
+
+            <!-- Installation Date -->
+            <label for="installationDate">Date of Installation <span class="required">*</span></label>
+            <input type="date" id="installationDate" name="installationDate" required>
+
+            <!-- Useful Features -->
+            <fieldset>
+                <legend>Which features did you find useful? (Check all that apply)</legend>
+                <label><input type="checkbox" name="features" value="durability"> Durability</label>
+                <label><input type="checkbox" name="features" value="easeOfUse"> Ease of Use</label>
+                <label><input type="checkbox" name="features" value="performance"> Performance</label>
+                <label><input type="checkbox" name="features" value="design"> Design</label>
+            </fieldset>
+
+            <!-- Written Review -->
+            <label for="writtenReview">Written Review (Optional)</label>
+            <textarea id="writtenReview" name="writtenReview" rows="4"></textarea>
+
+            <!-- User Name -->
+            <label for="userName">Your Name (Optional)</label>
+            <input type="text" id="userName" name="userName">
+
+            <!-- Submit -->
+            <input type="submit" value="Post Review">
+        </form>
+    </main>
+    <footer>
+        <p>&copy;<span id="currentYear"></span> 🌸 Temidayo Olukayode 🌸 Nigeria</p>
+        <p>Last Modification: <span id="lastModified"></span></p>
+    </footer>
+
+</body>
+
+</html>
