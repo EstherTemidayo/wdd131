@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buka & Beyond - Website Plan</title>
+    <!-- Google Fonts link for our specified Typography section -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Cabinet+Grotesk:wght@700&family=Satoshi:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles/siteplan.css">
+</head>
+
+<body>
+    <header>
+        <h1>Buka & Beyond</h1>
+        <p>Website Planning Document</p>
+    </header>
+
+    <main>
+        <!-- Section 1: Site Name -->
+        <section class="plan-section">
+            <h2>1. Site Name</h2>
+            <p><strong>Name:</strong> Buka & Beyond</p>
+            <p><strong>Logo Concept:</strong> A stylized, modern cooking clay pot (Ape) with a clean, elegant spoon
+                sweeping upwards to symbolize modern culinary discovery.</p>
+            <p><strong>Reason for Selection:</strong> This name honors local Nigerian bukas (traditional food joints)
+                while signaling that the platform goes "beyond" to explore the deep histories, vibrant cultures, and
+                specific locations of authentic local street dining.</p>
+        </section>
+
+        <!-- Section 2: Site Purpose -->
+        <section class="plan-section">
+            <h2>2. Site Purpose</h2>
+            <p>Buka & Beyond serves as an interactive cultural hub and restaurant discovery platform for local food
+                enthusiasts and tourists. The site maps regional bukhas, details their signature cultural dishes (such
+                as Amala, Pounded Yam, or Jollof variants), and offers historical backgrounds on these culinary
+                traditions. It also provides an interactive portal with submission forms where users can suggest or
+                review neighborhood bukhas to support local businesses.</p>
+        </section>
+
+        <!-- Section 3: Scenarios -->
+        <section class="plan-section">
+            <h2>3. Target Audience Scenarios</h2>
+            <ul>
+                <li><strong>Scenario A:</strong> Where can I find the highest-rated, authentic Amala spot in the
+                    Surulere or Ikeja areas that includes secure local parking?</li>
+                <li><strong>Scenario B:</strong> How do I register or recommend my neighborhood's favorite hidden
+                    roadside buka so it can get listed on this platform?</li>
+            </ul>
+        </section>
+
+        <!-- Section 4: Color Schema -->
+        <section class="plan-section">
+            <h2>4. Color Schema</h2>
+            <p>This planning document directly utilizes the project's selected color palette:</p>
+            <div class="color-palette">
+                <div class="color-box primary-box">
+                    <strong>Primary Color</strong>
+                    <span>#8B263E (Deep Pepper Red)</span>
+                    <small>Used for: Headers, primary branding elements, and section roots.</small>
+                </div>
+                <div class="color-box secondary-box">
+                    <strong>Secondary Color</strong>
+                    <span>#D4A373 (Warm Clay Gold)</span>
+                    <small>Used for: Call-to-action details, borders, and visual accents.</small>
+                </div>
+                <div class="color-box bg-box">
+                    <strong>Background Light</strong>
+                    <span>#FFFDF9 (Off-White / Rice Cream)</span>
+                    <small>Used for: Clean, readable background canvasses across pages.</small>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Typography -->
+        <section class="plan-section">
+            <h2>5. Typography</h2>
+            <div class="font-demo heading-font">
+                <h3>Cabinet Grotesk (Bold Sanskrit/Display Sans)</h3>
+                <p>Applied to: All main website headers, page block titles, and primary logo branding text.</p>
+            </div>
+            <div class="font-demo body-font">
+                <h3>Satoshi (Clean Geometric Sans)</h3>
+                <p>Applied to: Standard body text, descriptive review boxes, paragraphs, forms, and footer metrics.</p>
+            </div>
+        </section>
+
+        <!-- Section 6: Wireframes -->
+        <section class="plan-section">
+            <h2>6. Home Page Wireframes</h2>
+            <div class="wireframe-container">
+                <!-- Mobile wireframe simulation -->
+                <div class="wireframe-block mobile-wf">
+                    <h3>Mobile Layout Blueprint</h3>
+                    <div class="wf-element">[ Navigation / Hamburger Menu ]</div>
+                    <div class="wf-element">[ Hero Image & Search Box ]</div>
+                    <div class="wf-element">[ Spotlight Buka Stack ]</div>
+                    <div class="wf-element">[ Review Count Status Counter ]</div>
+                    <div class="wf-element">[ Footer Metrics Box ]</div>
+                </div>
+
+                <!-- Desktop wireframe simulation -->
+                <div class="wireframe-block desktop-wf">
+                    <h3>Desktop Layout Blueprint</h3>
+                    <div class="wf-element">[ Logo ----- Nav Links ----- Actions ]</div>
+                    <div class="wf-element" style="padding: 2rem 1rem;">[ Hero Banner: Image Background & Center Search
+                        bar ]
+                    </div>
+
+                    <div class="wf-columns">
+                        <div class="wf-element" style="flex: 1;">[ Spotlight Buka Left ]</div>
+                        <div class="wf-element" style="flex: 1;">[ Spotlight Buka Center ]</div>
+                        <div class="wf-element" style="flex: 1;">[ Spotlight Buka Right ]</div>
+                    </div>
+                    <div class="wf-element">[ Stat Counter Matrix Grid ]</div>
+                    <div class="wf-element">[ Footer Block Elements ]</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy;<span id="currentYear"></span> 🌸 Temidayo Olukayode 🌸 Nigeria</p>
+        <p>Last Modification: <span id="lastModified"></span></p>
+    </footer>
+
+    <script>
+        // Inline layout dynamic timestamps required by general script rules
+        document.getElementById("currentYear").textContent = new Date().getFullYear();
+        document.getElementById("lastModified").textContent = document.lastModified;
+    </script>
+</body>
+
+</html>

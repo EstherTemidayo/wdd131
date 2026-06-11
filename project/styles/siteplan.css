@@ -1,0 +1,178 @@
+/* Color Scheme Constants */
+:root {
+    --primary-grey: #57575a;
+    --accent-gold: #D4A373;
+    /* Warm Clay Gold */
+    --bg-cream: #FFFDF9;
+    /* Off-White Rice Cream */
+    --text-black: #000000;
+    /* Pure Black Text */
+}
+
+/* Typography & Base Layout Assignments */
+body {
+    font-family: 'Satoshi', sans-serif;
+    background-color: var(--bg-cream);
+    color: var(--text-black);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+h1,
+h2,
+h3 {
+    font-family: 'Cabinet Grotesk', sans-serif;
+    color: var(--primary-grey);
+    /* Updated to matching header grey */
+}
+
+header {
+    background-color: var(--primary-grey);
+    /* Match the primary grey */
+    color: white;
+    text-align: center;
+    padding: 2.5rem 1rem;
+    border-bottom: 5px solid var(--accent-gold);
+}
+
+header h1 {
+    color: white;
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+header p {
+    margin: 0.5rem 0 0 0;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    color: var(--accent-gold);
+}
+
+main {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+}
+
+.plan-section {
+    background: white;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    border-left: 4px solid var(--primary-grey);
+    /* Left side border matches theme */
+}
+
+.plan-section h2 {
+    margin-top: 0;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 0.5rem;
+}
+
+/* Color Schema Blocks styling */
+.color-palette {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+
+.color-box {
+    flex: 1;
+    min-width: 200px;
+    padding: 1rem;
+    border-radius: 4px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.primary-box {
+    background-color: var(--primary-grey);
+}
+
+.secondary-box {
+    background-color: var(--accent-gold);
+    color: var(--text-black);
+}
+
+.bg-box {
+    background-color: #f7f5f0;
+    color: var(--text-black);
+    border: 1px solid #ddd;
+}
+
+/* Typography Visual Showcase elements */
+.font-demo {
+    padding: 1rem;
+    background: #fafafa;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
+.heading-font h3 {
+    font-family: 'Cabinet Grotesk', sans-serif;
+    font-size: 1.5rem;
+}
+
+.body-font h3 {
+    font-family: 'Satoshi', sans-serif;
+    font-weight: bold;
+}
+
+/* Wireframe Block Mockups responsive grid system */
+.wireframe-container {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+}
+
+.wireframe-block {
+    background: #f0ede6;
+    border: 2px dashed #b5b0a5;
+    padding: 1rem;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+.mobile-wf {
+    width: 280px;
+    margin: 0 auto;
+}
+
+.desktop-wf {
+    flex: 1;
+    min-width: 320px;
+}
+
+.wf-element {
+    background: white;
+    border: 1px solid #ccc;
+    padding: 0.5rem;
+    margin: 0.5rem 0;
+    text-align: center;
+    font-size: 0.85rem;
+    color: #666;
+    border-radius: 4px;
+}
+
+.wf-columns {
+    display: flex;
+    gap: 0.5rem;
+}
+
+footer {
+    text-align: center;
+    padding: 1.5rem;
+    background-color: var(--primary-grey);
+    /* Updated to match header theme */
+    color: white;
+    margin-top: 4rem;
+    font-size: 0.9rem;
+    border-top: 4px solid var(--accent-gold);
+    /* Added clean top border accent */
+}
