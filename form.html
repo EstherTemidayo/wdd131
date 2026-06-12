@@ -4,8 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="A product review submission form for evaluating tech products and tracking submission counts.">
+    <meta name="author" content="Temidayo Olukayode">
     <title>WDD 131 - Product Review Form</title>
     <link rel="stylesheet" href="styles/form.css">
+    <link rel="stylesheet" href="styles/form-large.css" media="(min-width: 600px)">
     <script src="scripts/form.js" defer></script>
 </head>
 
@@ -21,15 +25,33 @@
                 <option value="" disabled selected>Select a Product ...</option>
             </select>
 
-            <!-- Overall Rating -->
             <fieldset>
                 <legend>Overall Rating <span class="required">*</span></legend>
                 <div class="rating-group">
-                    <label><input type="radio" name="rating" value="1" required> ⭐</label>
-                    <label><input type="radio" name="rating" value="2"> ⭐⭐</label>
-                    <label><input type="radio" name="rating" value="3"> ⭐⭐⭐</label>
-                    <label><input type="radio" name="rating" value="4"> ⭐⭐⭐⭐</label>
-                    <label><input type="radio" name="rating" value="5"> ⭐⭐⭐⭐⭐</label>
+                    <div class="rating-item">
+                        <input type="radio" id="rating1" name="rating" value="1" required>
+                        <label for="rating1">⭐</label>
+                    </div>
+
+                    <div class="rating-item">
+                        <input type="radio" id="rating2" name="rating" value="2" required>
+                        <label for="rating2">⭐⭐</label>
+                    </div>
+
+                    <div class="rating-item">
+                        <input type="radio" id="rating3" name="rating" value="3" required>
+                        <label for="rating3">⭐⭐⭐</label>
+                    </div>
+
+                    <div class="rating-item">
+                        <input type="radio" id="rating4" name="rating" value="4" required>
+                        <label for="rating4">⭐⭐⭐⭐</label>
+                    </div>
+
+                    <div class="rating-item">
+                        <input type="radio" id="rating5" name="rating" value="5" required>
+                        <label for="rating5">⭐⭐⭐⭐⭐⭐</label>
+                    </div>
                 </div>
             </fieldset>
 
@@ -37,14 +59,31 @@
             <label for="installationDate">Date of Installation <span class="required">*</span></label>
             <input type="date" id="installationDate" name="installationDate" required>
 
-            <!-- Useful Features -->
             <fieldset>
                 <legend>Which features did you find useful? (Check all that apply)</legend>
-                <label><input type="checkbox" name="features" value="durability"> Durability</label>
-                <label><input type="checkbox" name="features" value="easeOfUse"> Ease of Use</label>
-                <label><input type="checkbox" name="features" value="performance"> Performance</label>
-                <label><input type="checkbox" name="features" value="design"> Design</label>
+                <div class="checkbox-group">
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="feat-durability" name="features" value="durability">
+                        <label for="feat-durability">Durability</label>
+                    </div>
+
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="feat-ease" name="features" value="easeOfUse">
+                        <label for="feat-ease">Ease of Use</label>
+                    </div>
+
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="feat-performance" name="features" value="performance">
+                        <label for="feat-performance">Performance</label>
+                    </div>
+
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="feat-design" name="features" value="design">
+                        <label for="feat-design">Design</label>
+                    </div>
+                </div>
             </fieldset>
+
 
             <!-- Written Review -->
             <label for="writtenReview">Written Review (Optional)</label>

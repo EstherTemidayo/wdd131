@@ -1,11 +1,15 @@
+/* Color Scheme Constants */
 :root {
     --primary-color: #4a154b;
     --secondary-color: #611f69;
     --bg-light: #f4f4f6;
     --text-dark: #1d1c1d;
     --accent-color: #e01e5a;
+    --border-color: #cccccc;
+    --white: #ffffff;
 }
 
+/* Base Mobile-First Styles */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
@@ -16,16 +20,16 @@ body {
 
 header {
     background-color: var(--primary-color);
-    color: white;
+    color: var(--white);
     text-align: center;
     padding: 1.5rem;
 }
 
 main {
-    max-width: 600px;
-    margin: 2rem auto;
-    padding: 1.5rem;
-    background: white;
+    max-width: 100%;
+    margin: 1rem;
+    padding: 1.2rem;
+    background: var(--white);
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
@@ -38,6 +42,7 @@ form {
 
 label {
     font-weight: bold;
+    margin-top: 0.5rem;
 }
 
 .required {
@@ -51,27 +56,38 @@ input[type="date"] {
     width: 100%;
     padding: 0.75rem;
     box-sizing: border-box;
-    border: 1px solid #ccc;
+    border: 1px solid var(--border-color);
     border-radius: 4px;
     font-size: 1rem;
 }
 
 fieldset {
-    border: 1px solid #ddd;
+    border: 1px solid var(--border-color);
     border-radius: 4px;
     padding: 1rem;
 }
 
-.rating-group {
+.rating-group,
+.checkbox-group {
     display: flex;
     flex-direction: column;
+    gap: 0.6rem;
+}
+
+.rating-group label,
+.checkbox-group label {
+    font-weight: normal;
+    margin: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
     gap: 0.5rem;
 }
 
 input[type="submit"],
 .back-btn {
     background-color: var(--secondary-color);
-    color: white;
+    color: var(--white);
     padding: 0.8rem;
     border: none;
     border-radius: 4px;
@@ -81,22 +97,32 @@ input[type="submit"],
     text-decoration: none;
 }
 
+/* Prevent checkboxes from stretching to 100% width */
+.checkbox-item input[type="checkbox"] {
+    width: auto;
+    margin: 0;
+}
+
+/* Ensure the wrapper displays items horizontally */
+.checkbox-item {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 0.5rem;
+    margin-bottom: 0.6rem;
+}
+
+/* Reset label styling inside checkboxes to prevent layout breaking */
+.checkbox-item label {
+    display: inline;
+    font-weight: normal;
+    margin: 0;
+    cursor: pointer;
+}
+
 input[type="submit"]:hover,
 .back-btn:hover {
     background-color: var(--primary-color);
-}
-
-.confirmation-container {
-    text-align: center;
-}
-
-.counter-box {
-    margin: 2rem 0;
-    padding: 1rem;
-    background-color: var(--bg-light);
-    border-left: 5px solid var(--accent-color);
-    font-size: 1.2rem;
-    font-weight: bold;
 }
 
 footer {
@@ -104,6 +130,6 @@ footer {
     padding: 1rem;
     margin-top: 3rem;
     background-color: var(--primary-color);
-    color: white;
+    color: var(--white);
     font-size: 0.9rem;
 }
