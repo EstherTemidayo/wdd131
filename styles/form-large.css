@@ -1,11 +1,14 @@
 /* Desktop overrides for screens wider than 600px */
-main {
-    max-width: 600px;
-    margin: 2rem auto;
-    padding: 2rem;
-}
+@media (min-width: 600px) {
+    main {
+        max-width: 600px;
+        margin: 2rem auto;
+        padding: 2rem;
+    }
 
-.rating-group {
-    flex-direction: row;
-    gap: 1.5rem;
+    .rating-group {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+    }
 }
