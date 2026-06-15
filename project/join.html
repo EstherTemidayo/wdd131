@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buka & Beyond - Recommend a Spot</title>
+    <link rel="stylesheet" href="./styles/styles.css">
+    <!-- Corrected Google Fonts tracking Site Plan Typography settings exactly -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Cabinet+Grotesk:wght@700&family=Satoshi:wght@400;500&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <header>
+        <h1>Buka & Beyond</h1>
+        <p>Exploring the Culture, Flavors & Locations of Local Street Dining</p>
+    </header>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="join.html" class="active">Recommend a Spot</a>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <h2>Recommend a Neighborhood Buka</h2>
+            <p>Help our community discover legendary culinary spots. Submit your favorite local roadside vendor or
+                hidden food stand below.</p>
+        </section>
+
+        <!-- Standard Web Form configured using styles.css semantic rules -->
+        <div class="form-container">
+            <form id="bukaForm" action="#" method="GET">
+                <div class="form-group">
+                    <label for="bukaName">Buka / Restaurant Name *</label>
+                    <input type="text" id="bukaName" name="bukaName" placeholder="e.g., Iya Eba Junction" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="bukaLocation">Location Area (Lagos) *</label>
+                    <select id="bukaLocation" name="bukaLocation" required>
+                        <option value="">-- Select Area --</option>
+                        <option value="Mushin">Mushin</option>
+                        <option value="Surulere">Surulere</option>
+                        <option value="Yaba">Yaba</option>
+                        <option value="Ikeja">Ikeja</option>
+                        <option value="Lekki">Lekki</option>
+                        <option value="Lagos Island">Lagos Island / VI</option>
+                        <option value="Festac">Festac Town</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="bukaSpecialty">Signature Dish Specialty *</label>
+                    <input type="text" id="bukaSpecialty" name="bukaSpecialty"
+                        placeholder="e.g., Amala with mixed meat, Abula" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="bukaParking">Parking Availability Status *</label>
+                    <select id="bukaParking" name="bukaParking" required>
+                        <option value="">-- Select Parking Option --</option>
+                        <option value="Secure Gated Parking Available">Secure Gated Parking Available</option>
+                        <option value="Dedicated Compound Parking">Dedicated Compound Parking</option>
+                        <option value="Spacious Multi-car Compound">Spacious Multi-car Compound</option>
+                        <option value="Street Side Attended Parking">Street Side Attended Parking</option>
+                        <option value="Street Side Parking Only">Street Side Parking Only</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="bukaReview">Short Cultural Background / Review Notes</label>
+                    <textarea id="bukaReview" name="bukaReview" rows="4"
+                        placeholder="Tell us why this local spot is special, its history, or standard serving times..."></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">🚀 Submit Recommendation</button>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; <span id="currentYear"></span> 🌸 Temidayo Olukayode 🌸 Nigeria</p>
+        <p>Last Modification: <span id="lastModified"></span></p>
+        <p><a href="references.html">Project Attribution & References</a></p>
+    </footer>
+
+    <!-- Clean external script dependency link pointed to your script folder -->
+    <script src="script/form.js"></script>
+</body>
+
+</html>

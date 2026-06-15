@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buka & Beyond - Culinary Discovery Hub</title>
+    <link rel="stylesheet" href="./styles/styles.css">
+    <!--Google Fonts tracking Site Plan Typography settings exactly -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Cabinet+Grotesk:wght@700&family=Satoshi:wght@400;500&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <header>
+        <h1>Buka & Beyond</h1>
+        <p>Exploring the Culture, Flavors & Locations of Local Street Dining</p>
+    </header>
+
+    <nav>
+        <a href="index.html" class="active">Home</a>
+        <a href="join.html">Recommend a Spot</a>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <h2>Find Authentic Local Dining</h2>
+            <p>Bridging the gap between historic culinary traditions and modern street food discovery.</p>
+        </section>
+
+        <section class="control-panel">
+            <label for="filter-toggle"><strong>Filter Food Locations: </strong></label>
+            <select id="filter-toggle">
+                <option value="featured">Featured Spotlights</option>
+                <option value="all">Show All Spots</option>
+            </select>
+        </section>
+
+        <!-- Dynamic element grid handled entirely via main.js -->
+        <section class="buka-grid" id="buka-grid"></section>
+    </main>
+
+    <footer>
+        <p>&copy; <span id="currentYear"></span> 🌸 Temidayo Olukayode 🌸 Nigeria</p>
+        <p>Last Modification: <span id="lastModified"></span></p>
+        <!-- Required unstyled reference page footer assignment link rule -->
+        <p><a href="references.html">Project Attribution & References</a></p>
+    </footer>
+
+    <script type="module" src="../script/main.js"></script>
+</body>
+
+</html>
