@@ -1,2 +1,2 @@
-# wdd_131
-WDD_131 - BYU-IDAHO
+# wdd131
+WDD 131 - BYU-IDAHO
