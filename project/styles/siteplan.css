@@ -1,247 +1,656 @@
-/* 1. Color Scheme Variables from Site Plan */
+/* =========================================================
+   TRUB - TransitHub
+   Brand Colors: Green, Light Grey, Gold
+   ========================================================= */
+
 :root {
-    --primary-grey: #57575a;
-    --accent-gold: #D4A373;
-    --bg-cream: #FFFDF9;
-    --text-black: #000000;
-    --font-heading: 'Cabinet Grotesk', sans-serif;
-    --font-body: 'Satoshi', sans-serif;
+    --primary-green: #16803A;
+    --secondary-green: #22A653;
+    --light-green: #EAF6EE;
+
+    --light-grey: #F3F4F6;
+    --medium-grey: #D1D5DB;
+    --dark-grey: #4B5563;
+
+    --dark-text: #1F2937;
+    --gold: #F4B942;
+
+    --white: #FFFFFF;
+
+    --border-light: #DCE3DD;
+    --card-white: #FFFFFF;
+
+    --font-main: 'Plus Jakarta Sans', sans-serif;
 }
 
-/* 2. Global Defaults */
+
+/* =========================================================
+   GLOBAL STYLES
+   ========================================================= */
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    font-family: var(--font-body);
-    background-color: var(--bg-cream);
-    color: var(--text-black);
+    font-family: var(--font-main);
+    background-color: var(--light-grey);
+    color: var(--dark-text);
     line-height: 1.6;
 }
 
-/* 3. Typography Styles */
 h1,
 h2,
 h3 {
-    font-family: var(--font-heading);
-    color: var(--primary-grey);
+    font-family: var(--font-main);
+    color: var(--primary-green);
+    font-weight: 700;
 }
 
-/* 4. Layout Architecture - Header & Navigation */
+h2 {
+    margin-bottom: 1rem;
+}
+
+h3 {
+    margin-bottom: 0.75rem;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+strong {
+    color: var(--primary-green);
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
 header {
-    background-color: var(--primary-grey);
-    color: white;
+    background-color: var(--primary-green);
+    color: var(--white);
     text-align: center;
-    padding: 2.5rem 1rem;
-    border-bottom: 5px solid var(--accent-gold);
+    padding: 2rem 1rem;
+    border-radius: 5px;
 }
 
 header h1 {
-    color: white;
-    font-size: 2.5rem;
+    color: var(--white);
+    font-size: 3rem;
+    font-weight: 800;
+    letter-spacing: 1px;
     margin-bottom: 0.5rem;
 }
 
 header p {
+    color: #E8F5EC;
     font-size: 1.1rem;
-    letter-spacing: 1px;
-    color: var(--accent-gold);
+    letter-spacing: 0.5px;
+    margin-bottom: 0;
 }
 
-nav {
-    background-color: #2b2b2d;
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-    padding: 12px;
-}
 
-nav a {
-    color: white;
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.2s;
-}
-
-nav a:hover,
-nav a.active {
-    color: var(--accent-gold);
-}
+/* =========================================================
+   MAIN CONTENT
+   ========================================================= */
 
 main {
     max-width: 1200px;
-    margin: 2rem auto;
+    margin: 2.5rem auto;
     padding: 0 1.5rem;
 }
 
-/* 5. Components - Home Page Hero & Filters */
-.hero {
-    text-align: center;
-    padding: 2.5rem 1rem;
-    background: white;
-    border-radius: 6px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-    margin-bottom: 2rem;
-    border-top: 4px solid var(--primary-grey);
-}
 
-.hero h2 {
-    margin-bottom: 0.5rem;
-}
+/* =========================================================
+   PLAN SECTIONS
+   ========================================================= */
 
-.control-panel {
-    text-align: center;
-    margin-bottom: 2rem;
-}
-
-select {
-    padding: 8px 16px;
-    font-family: var(--font-body);
-    border: 2px solid var(--accent-gold);
-    border-radius: 4px;
-    background: white;
-    font-size: 1rem;
-    cursor: pointer;
-}
-
-/* 6. Dynamic Grid & Cards Layout */
-.buka-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-bottom: 2rem;
-}
-
-.buka-card {
-    background: white;
-    border-radius: 6px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-    overflow: hidden;
-    border-bottom: 4px solid var(--accent-gold);
-    display: flex;
-    flex-direction: column;
-}
-
-.buka-card img {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-    background-color: #f0ede6;
-    transition: opacity 0.3s ease;
-}
-
-/* Lazy loading image states */
-.buka-card img.lazy-image {
-    opacity: 0.3;
-}
-
-.buka-card img.loaded {
-    opacity: 1;
-}
-
-.buka-info {
-    padding: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    gap: 0.5rem;
-}
-
-.buka-info h3 {
-    border-bottom: 2px solid #f7f5f0;
-    padding-bottom: 0.25rem;
-    margin-bottom: 0.25rem;
-}
-
-/* Interactive Elements */
-.save-btn {
-    background-color: var(--primary-grey);
-    color: white;
-    border: none;
-    padding: 10px;
-    width: 100%;
-    margin-top: auto;
-    cursor: pointer;
-    font-family: var(--font-body);
-    font-weight: 500;
-    border-radius: 4px;
-    transition: background-color 0.2s;
-}
-
-.save-btn:hover {
-    background-color: #3e3e40;
-}
-
-/* 7. Join Form Layout Elements */
-.form-container {
-    max-width: 600px;
-    margin: 0 auto;
-    background: white;
+.plan-section {
+    background-color: var(--card-white);
     padding: 2rem;
-    border-radius: 6px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-    border-left: 4px solid var(--primary-grey);
+    margin-bottom: 2rem;
+    border-radius: 12px;
+    border: 1px solid var(--border-light);
+    box-shadow: 0 3px 12px rgba(22, 128, 58, 0.06);
 }
 
-.form-group {
-    margin-bottom: 1.25rem;
+.plan-section h2 {
+    font-size: 1.7rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 3px solid var(--primary-green);
+    margin-bottom: 1.5rem;
 }
 
-.form-group label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: 500;
+.plan-section p {
+    color: var(--dark-grey);
 }
 
-.form-group input,
-.form-group select,
-.form-group textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-family: var(--font-body);
+.plan-section ul {
+    padding-left: 1.5rem;
 }
 
-.submit-btn {
-    background-color: var(--primary-grey);
-    color: white;
-    border: none;
-    padding: 12px 20px;
-    cursor: pointer;
-    border-radius: 4px;
-    width: 100%;
-    font-family: var(--font-body);
-    font-size: 1rem;
+.plan-section li {
+    margin-bottom: 1rem;
+    color: var(--dark-grey);
 }
 
-.submit-btn:hover {
-    background-color: #3e3e40;
+
+/* =========================================================
+   COLOR PALETTE
+   ========================================================= */
+
+.color-palette {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-top: 1.5rem;
 }
 
-/* 8. Structural Footer Layout */
-footer {
-    text-align: center;
+.color-box {
+    min-height: 190px;
     padding: 1.5rem;
-    background-color: var(--primary-grey);
-    color: white;
-    margin-top: 4rem;
-    font-size: 0.9rem;
-    border-top: 4px solid var(--accent-gold);
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    color: var(--white);
+}
+
+.color-box strong {
+    color: var(--white);
+    font-size: 1.05rem;
+    margin-bottom: 0.3rem;
+}
+
+.color-box span {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.color-box small {
+    font-size: 0.82rem;
+    line-height: 1.5;
+}
+
+
+/* Primary Green */
+
+.primary-box {
+    background-color: var(--primary-green);
+}
+
+
+/* Secondary Green */
+
+.secondary-box {
+    background-color: var(--secondary-green);
+}
+
+
+/* Gold */
+
+.accent-box {
+    background-color: var(--gold);
+    color: var(--dark-text);
+}
+
+.accent-box strong {
+    color: var(--dark-text);
+}
+
+
+/* Light Grey */
+
+.bg-box {
+    background-color: var(--light-grey);
+    color: var(--dark-text);
+    border: 1px solid var(--medium-grey);
+}
+
+.bg-box strong {
+    color: var(--dark-text);
+}
+
+
+/* =========================================================
+   TYPOGRAPHY
+   ========================================================= */
+
+.font-demo {
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+
+    border-left: 5px solid var(--primary-green);
+    background-color: var(--light-grey);
+}
+
+.font-demo h3 {
+    font-size: 1.3rem;
+}
+
+.font-demo p {
+    margin-bottom: 0;
+}
+
+.heading-font h3 {
+    font-weight: 800;
+}
+
+.body-font {
+    border-left-color: var(--gold);
+}
+
+
+/* =========================================================
+   WEBSITE STRUCTURE
+   ========================================================= */
+
+.structure-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+}
+
+.structure-item {
+    padding: 1.5rem;
+    background-color: var(--light-grey);
+
+    border: 1px solid var(--border-light);
+    border-radius: 10px;
+
+    border-top: 4px solid var(--primary-green);
+}
+
+.structure-item strong {
+    display: block;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.structure-item p {
+    margin-bottom: 0;
+    font-size: 0.95rem;
+}
+
+
+/* =========================================================
+   USER FLOW
+   ========================================================= */
+
+.flow-container {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+}
+
+.flow-step {
+    flex: 1;
+
+    min-height: 150px;
+    padding: 1.25rem;
+
+    background-color: var(--light-grey);
+
+    border: 1px solid var(--border-light);
+    border-radius: 10px;
+
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.flow-step strong {
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: var(--primary-green);
+    color: var(--white);
+
+    border-radius: 50%;
+
+    margin-bottom: 0.75rem;
+}
+
+.flow-step span {
+    font-weight: 700;
+    color: var(--primary-green);
+    margin-bottom: 0.4rem;
+}
+
+.flow-step small {
+    color: var(--dark-grey);
+    font-size: 0.8rem;
+}
+
+.flow-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: var(--gold);
+
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   WIREFRAMES
+   ========================================================= */
+
+.wireframe-container {
+    display: grid;
+    grid-template-columns: 1fr 1.6fr;
+
+    gap: 2rem;
+    margin-top: 1.5rem;
+}
+
+.wireframe-block {
+    padding: 1.5rem;
+
+    border: 2px dashed #AEB9B0;
+    border-radius: 12px;
+
+    background-color: var(--light-grey);
+}
+
+.wireframe-block h3 {
+    text-align: center;
+
+    color: var(--primary-green);
+
+    margin-bottom: 1.5rem;
+}
+
+.wf-element {
+    min-height: 55px;
+
+    padding: 1rem;
+    margin-bottom: 0.75rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    background-color: var(--white);
+
+    border: 1px solid var(--medium-grey);
+    border-radius: 6px;
+
+    color: var(--dark-grey);
+
+    font-size: 0.85rem;
+}
+
+.hero-wireframe {
+    min-height: 150px;
+
+    background-color: var(--light-green);
+
+    border-color: var(--primary-green);
+}
+
+.wf-columns {
+    display: flex;
+
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+}
+
+.wf-columns .wf-element {
+    flex: 1;
+}
+
+
+/* Mobile Wireframe */
+
+.mobile-wf {
+    max-width: 360px;
+    width: 100%;
+
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   BRAND HIGHLIGHT ELEMENTS
+   ========================================================= */
+
+.highlight-box {
+    padding: 1.5rem;
+
+    background-color: var(--light-green);
+
+    border-left: 5px solid var(--primary-green);
+
+    border-radius: 8px;
+
+    margin: 1rem 0;
+}
+
+.highlight-box strong {
+    color: var(--primary-green);
+}
+
+.gold-highlight {
+    padding: 1rem 1.25rem;
+
+    background-color: #FFF7DF;
+
+    border-left: 5px solid var(--gold);
+
+    border-radius: 8px;
+
+    margin: 1rem 0;
+}
+
+.gold-highlight strong {
+    color: #8A6500;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.plan-section:last-of-type {
+    margin-bottom: 0;
+}
+
+footer {
+    background-color: var(--primary-green);
+
+    color: var(--white);
+
+    text-align: center;
+
+    padding: 2rem 1rem;
+
+    margin-top: 2 rem;
 }
 
 footer p {
     margin: 0.4rem 0;
+
+    font-size: 0.9rem;
 }
 
-footer a {
-    color: var(--accent-gold);
-    text-decoration: none;
+footer p:first-child {
+    color: var(--white);
 }
 
-footer a:hover {
-    text-decoration: underline;
+footer p:last-child {
+    color: #D7EADB;
+}
+
+
+/* =========================================================
+   TABLES
+   ========================================================= */
+
+.plan-table {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    margin-top: 1rem;
+}
+
+.plan-table th,
+.plan-table td {
+    padding: 1rem;
+
+    text-align: left;
+
+    border: 1px solid var(--border-light);
+}
+
+.plan-table th {
+    background-color: var(--primary-green);
+
+    color: var(--white);
+
+    font-weight: 700;
+}
+
+.plan-table td {
+    background-color: var(--white);
+
+    color: var(--dark-grey);
+}
+
+.plan-table tr:nth-child(even) td {
+    background-color: var(--light-grey);
+}
+
+
+/* =========================================================
+   RESPONSIVE DESIGN
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .color-palette {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .wireframe-container {
+        grid-template-columns: 1fr;
+    }
+
+    .structure-list {
+        grid-template-columns: 1fr;
+    }
+
+    .flow-container {
+        flex-wrap: wrap;
+    }
+
+    .flow-step {
+        min-width: 150px;
+    }
+
+    .flow-arrow {
+        display: none;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    header {
+        padding: 2.25rem 1rem;
+    }
+
+    header h1 {
+        font-size: 2.3rem;
+    }
+
+    header p {
+        font-size: 0.95rem;
+    }
+
+    main {
+        margin: 1.5rem auto;
+
+        padding: 0 1rem;
+    }
+
+    .plan-section {
+        padding: 1.25rem;
+
+        margin-bottom: 1.25rem;
+    }
+
+    .plan-section h2 {
+        font-size: 1.4rem;
+    }
+
+    .color-palette {
+        grid-template-columns: 1fr;
+    }
+
+    .color-box {
+        min-height: 160px;
+    }
+
+    .flow-container {
+        display: grid;
+
+        grid-template-columns: 1fr;
+    }
+
+    .flow-step {
+        min-height: 130px;
+    }
+
+    .wf-columns {
+        flex-direction: column;
+    }
+
+    .mobile-wf {
+        max-width: 100%;
+    }
+
+    .wireframe-block {
+        padding: 1rem;
+    }
+
+    .plan-table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    footer {
+        padding: 1.5rem 1rem;
+    }
 }

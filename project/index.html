@@ -2,58 +2,93 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Buka & Beyond - Culinary Discovery Hub</title>
-    <!-- Pointing directly to the correct styles file name -->
-    <link rel="stylesheet" href="./styles/styles.css">
-    <!-- Fixed Google Fonts tracking URLs -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Cabinet+Grotesk:wght@700&family=Satoshi:wght@400;500&display=swap"
-        rel="stylesheet">
+    <!-- <script>
+        (function () {
+            var proto = XMLHttpRequest.prototype;
+            var open = proto.open, setRequestHeader = proto.setRequestHeader, send = proto.send;
+            var TOKEN_KEY = 'base44_access_token';
+            var storedTokenHeader = function () {
+                try { return 'Bearer ' + localStorage.getItem(TOKEN_KEY); } catch (e) { return null; }
+            };
+            var forgetStoredToken = function () {
+                try { localStorage.removeItem(TOKEN_KEY); localStorage.removeItem('token'); } catch (e) { }
+            };
+
+            proto.open = function (method, url) {
+                this.__b44IsAuthCheck = /\/entities\/User\/me(\?|$)/.test(url);
+                return open.apply(this, arguments);
+            };
+
+            proto.setRequestHeader = function (name, value) {
+                if (this.__b44IsAuthCheck && name.toLowerCase() === 'authorization' && value === storedTokenHeader()) {
+                    this.__b44SentToken = value;
+                }
+                return setRequestHeader.call(this, name, value);
+            };
+
+            proto.send = function () {
+                this.addEventListener('loadend', function () {
+                    var rejectedTokenStillStored = this.status === 401 && this.__b44SentToken === storedTokenHeader();
+                    if (rejectedTokenStillStored) forgetStoredToken();
+                });
+                return send.apply(this, arguments);
+            };
+        })();
+    </script> -->
+    <meta charset="utf-8" />
+    <link href="https://media.base44.com/images/public/6ac2c8a82d0b3dd3dbdf6209/4aff7e73a_logo.png" rel="icon"
+        type="image/svg+xml" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <link href="/manifest.json" rel="manifest" />
+    <title>
+        TRUB JOURNEYS
+    </title>
+    <script crossorigin="" src="/assets/index-DBehYYds.js" type="module">
+    </script>
+    <link crossorigin="" href="/assets/index-BwV1TUuu.css" rel="stylesheet" />
+    <script type="module">
+        if (window.self === window.top) {
+            let lastPath = "";
+            function getPageNameFromPath(path) {
+                const segments = path.split("/").filter(Boolean);
+                return segments[0] || null;
+            }
+            function trackPageView() {
+                const path = window.location.pathname;
+                if (path === lastPath) return;
+                lastPath = path;
+                const pageName = getPageNameFromPath(path) || "home";
+                const appId = "6ac2c8a82d0b3dd3dbdf6209";
+                if (!appId) return;
+                fetch(`/api/app-logs/${appId}/log-user-in-app/${pageName}`, {
+                    method: "POST",
+                }).catch(() => { });
+            }
+            const originalPushState = history.pushState.bind(history);
+            history.pushState = function (...args) {
+                originalPushState(...args);
+                trackPageView();
+            };
+            const originalReplaceState = history.replaceState.bind(history);
+            history.replaceState = function (...args) {
+                originalReplaceState(...args);
+                trackPageView();
+            };
+            window.addEventListener("popstate", trackPageView);
+            trackPageView();
+        }
+    </script>
+    <meta content="yes" name="mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta content="Trub" name="apple-mobile-web-app-title" />
+    <script async="true" data-app-id="6ac2c8a82d0b3dd3dbdf6209" data-platform-url="https://app.base44.com"
+        src="/static/js/badge.js">
+        </script>
 </head>
 
 <body>
-
-    <header>
-        <h1>Buka & Beyond</h1>
-        <p>Exploring the Culture, Flavors & Locations of Local Street Dining</p>
-    </header>
-
-    <nav>
-        <a href="index.html" class="active">Home</a>
-        <a href="join.html">Recommend a Spot</a>
-    </nav>
-
-    <main>
-        <section class="hero">
-            <h2>Find Authentic Local Dining</h2>
-            <p>Bridging the gap between historic culinary traditions and modern street food discovery.</p>
-        </section>
-
-        <section class="control-panel">
-            <label for="filter-toggle"><strong>Filter Food Locations: </strong></label>
-            <select id="filter-toggle">
-                <option value="featured">Featured Spotlights</option>
-                <option value="all">Show All Spots</option>
-            </select>
-        </section>
-
-        <!-- Dynamic element grid handled entirely via main.js -->
-        <section class="buka-grid" id="buka-grid"></section>
-    </main>
-
-    <footer>
-        <p>&copy; <span id="currentYear"></span> 🌸 Temidayo Olukayode 🌸 Nigeria</p>
-        <p>Last Modification: <span id="lastModified"></span></p>
-        <!-- Required unstyled reference page footer assignment link rule -->
-        <p><a href="references.html">Project Attribution & References</a></p>
-    </footer>
-
-    <!-- Fixed script path to point forward into your script folder -->
-    <script type="module" src="scripts/main.js"></script>
+    <div id="root">
+    </div>
 </body>
 
 </html>
