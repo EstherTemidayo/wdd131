@@ -2,93 +2,232 @@
 <html lang="en">
 
 <head>
-    <!-- <script>
-        (function () {
-            var proto = XMLHttpRequest.prototype;
-            var open = proto.open, setRequestHeader = proto.setRequestHeader, send = proto.send;
-            var TOKEN_KEY = 'base44_access_token';
-            var storedTokenHeader = function () {
-                try { return 'Bearer ' + localStorage.getItem(TOKEN_KEY); } catch (e) { return null; }
-            };
-            var forgetStoredToken = function () {
-                try { localStorage.removeItem(TOKEN_KEY); localStorage.removeItem('token'); } catch (e) { }
-            };
-
-            proto.open = function (method, url) {
-                this.__b44IsAuthCheck = /\/entities\/User\/me(\?|$)/.test(url);
-                return open.apply(this, arguments);
-            };
-
-            proto.setRequestHeader = function (name, value) {
-                if (this.__b44IsAuthCheck && name.toLowerCase() === 'authorization' && value === storedTokenHeader()) {
-                    this.__b44SentToken = value;
-                }
-                return setRequestHeader.call(this, name, value);
-            };
-
-            proto.send = function () {
-                this.addEventListener('loadend', function () {
-                    var rejectedTokenStillStored = this.status === 401 && this.__b44SentToken === storedTokenHeader();
-                    if (rejectedTokenStillStored) forgetStoredToken();
-                });
-                return send.apply(this, arguments);
-            };
-        })();
-    </script> -->
-    <meta charset="utf-8" />
-    <link href="https://media.base44.com/images/public/6ac2c8a82d0b3dd3dbdf6209/4aff7e73a_logo.png" rel="icon"
-        type="image/svg+xml" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <link href="/manifest.json" rel="manifest" />
-    <title>
-        TRUB JOURNEYS
-    </title>
-    <script crossorigin="" src="/assets/index-DBehYYds.js" type="module">
-    </script>
-    <link crossorigin="" href="/assets/index-BwV1TUuu.css" rel="stylesheet" />
-    <script type="module">
-        if (window.self === window.top) {
-            let lastPath = "";
-            function getPageNameFromPath(path) {
-                const segments = path.split("/").filter(Boolean);
-                return segments[0] || null;
-            }
-            function trackPageView() {
-                const path = window.location.pathname;
-                if (path === lastPath) return;
-                lastPath = path;
-                const pageName = getPageNameFromPath(path) || "home";
-                const appId = "6ac2c8a82d0b3dd3dbdf6209";
-                if (!appId) return;
-                fetch(`/api/app-logs/${appId}/log-user-in-app/${pageName}`, {
-                    method: "POST",
-                }).catch(() => { });
-            }
-            const originalPushState = history.pushState.bind(history);
-            history.pushState = function (...args) {
-                originalPushState(...args);
-                trackPageView();
-            };
-            const originalReplaceState = history.replaceState.bind(history);
-            history.replaceState = function (...args) {
-                originalReplaceState(...args);
-                trackPageView();
-            };
-            window.addEventListener("popstate", trackPageView);
-            trackPageView();
-        }
-    </script>
-    <meta content="yes" name="mobile-web-app-capable" />
-    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
-    <meta content="Trub" name="apple-mobile-web-app-title" />
-    <script async="true" data-app-id="6ac2c8a82d0b3dd3dbdf6209" data-platform-url="https://app.base44.com"
-        src="/static/js/badge.js">
-        </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TRUB - TransitHub Home</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <script src="scripts/script.js" defer></script>
 </head>
 
 <body>
-    <div id="root">
-    </div>
+
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo">TRUB <span>TransitHub</span></a>
+
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">
+                ☰
+            </button>
+
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="agencies.html">Agencies</a></li>
+                    <li><a href="tracking.html">Live Tracking</a></li>
+                    <li><a href="book.html">Book & Pay</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1>Discover, Compare, and Book Reliable Travel</h1>
+                <p>Connecting you safely to destinations across the transit network.</p>
+            </div>
+
+            <div class="search-container">
+                <form id="searchForm" class="search-form">
+                    <div class="form-group">
+                        <label for="fromLocation">State of Departure</label>
+                        <select id="fromLocation" required
+                            style="padding: 0.75rem; border: 1px solid #CCC; border-radius: 8px; font-family: var(--body-font); font-size: 1rem;">
+                            <option value="Lagos (West)">Lagos (West)</option>
+                            <option value="Abuja (Central)">Abuja (Central)</option>
+                            <option value="Enugu (East)">Enugu (East)</option>
+                            <option value="Kano (North)">Kano (North)</option>
+                            <option value="Kaduna (North)">Kaduna (North)</option>
+                            <option value="Oyo (West)">Oyo (West)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="toLocation">Destination State</label>
+                        <select id="toLocation" required
+                            style="padding: 0.75rem; border: 1px solid #CCC; border-radius: 8px; font-family: var(--body-font); font-size: 1rem;">
+                            <option value="Abuja (Central)">Abuja (Central)</option>
+                            <option value="Lagos (West)">Lagos (West)</option>
+                            <option value="Enugu (East)">Enugu (East)</option>
+                            <option value="Kano (North)">Kano (North)</option>
+                            <option value="Kaduna (North)">Kaduna (North)</option>
+                            <option value="Oyo (West)">Oyo (West)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="carriageType">Carriage Type</label>
+                        <select id="carriageType"
+                            style="padding: 0.75rem; border: 1px solid #CCC; border-radius: 8px; font-family: var(--body-font); font-size: 1rem;">
+                            <option value="shared">Shared Transport (3 People in Car)</option>
+                            <option value="individual">Individual Private Car</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="travelDate">Date</label>
+                        <input type="date" id="travelDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="passengers">Passengers</label>
+                        <input type="number" id="passengers" min="1" max="3" value="1" required>
+                    </div>
+                    <button type="submit" class="btn-find">Calculate Fare</button>
+                </form>
+
+                <div id="searchResultDisplay"></div>
+            </div>
+
+
+            <section class="stats-section">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3 class="stat-number">50+</h3>
+                        <p class="stat-label">Verified Agencies</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3 class="stat-number">10k+</h3>
+                        <p class="stat-label">Daily Commutes</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3 class="stat-number">99.8%</h3>
+                        <p class="stat-label">Safe Arrivals</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="benefits-section">
+                <h2>Why Choose TRUB</h2>
+                <div class="benefits-grid">
+                    <div class="benefit-item">
+                        <h3>Centralized Marketplace</h3>
+                        <p>Compare multiple transit alternatives, prices, and travel routes all inside one interface
+                            without
+                            reaching out to agencies directly.</p>
+                    </div>
+                    <div class="benefit-item">
+                        <h3>Safety Auditing</h3>
+                        <p>We confirm agency status and vehicle safety protocols before allowing them on our network
+                            platform.</p>
+                    </div>
+                    <div class="benefit-item">
+                        <h3>Live Tracking Infrastructure</h3>
+                        <p>Keep family and friends updated by observing your active route and transit location via
+                            satellite
+                            updates.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="steps-section">
+                <h2>How TRUB Works</h2>
+                <ol class="steps-list">
+                    <li><strong>Search:</strong> Provide departure terminals, dates, and group metrics.</li>
+                    <li><strong>Compare:</strong> Evaluate vendor fees, speed ratings, and seat formats.</li>
+                    <li><strong>Book:</strong> Lock down preferred choices and detail travel lists.</li>
+                    <li><strong>Pay:</strong> Complete processing safely through protected transaction portals.</li>
+                    <li><strong>Track:</strong> Oversee fleet paths dynamically throughout live itineraries.</li>
+                </ol>
+            </section>
+
+            <section class="agencies-preview-section">
+                <h2>Featured Agencies</h2>
+                <div id="dynamicAgencies" class="agencies-grid"></div>
+            </section>
+
+            <section class="safety-showcase-section">
+                <div class="safety-badge">Vigilance portal</div>
+                <h2>Your safety, engineered.</h2>
+                <p class="safety-subtitle">TRUB treats every trip as mission-critical. Here is exactly how we keep you
+                    protected from booking to arrival.</p>
+
+                <div class="safety-features-grid">
+                    <div class="safety-card-item">
+                        <div class="safety-icon-box">📡</div>
+                        <h3>24/7 GPS Live Tracking</h3>
+                        <p>Every vehicle streams its location in real time. Share your trip link with family so they
+                            follow
+                            along until you arrive.</p>
+                    </div>
+
+                    <div class="safety-card-item">
+                        <div class="safety-icon-box">🪪</div>
+                        <h3>Driver Background Checks</h3>
+                        <p>All drivers undergo identity verification, criminal record checks, and periodic re-screening
+                            before and during their tenure.</p>
+                    </div>
+
+                    <div class="safety-card-item">
+                        <div class="safety-icon-box">📞</div>
+                        <h3>Emergency Helpline</h3>
+                        <p>A dedicated 24/7 line connects you to our response team. Average pickup under 2 minutes, with
+                            local authorities on standby.</p>
+                    </div>
+
+                    <div class="safety-card-item">
+                        <div class="safety-icon-box">🛡️</div>
+                        <h3>Verified Vehicles</h3>
+                        <p>Vehicles pass roadworthiness inspections and carry valid insurance. We re-verify plates and
+                            documents quarterly.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="workflow-section">
+                <h2>How a trip is secured</h2>
+                <div class="workflow-grid">
+                    <div class="workflow-card">
+                        <span class="step-num">01</span>
+                        <h3>Book</h3>
+                        <p>Choose a verified agency and route.</p>
+                    </div>
+                    <div class="workflow-card">
+                        <span class="step-num">02</span>
+                        <h3>Verify</h3>
+                        <p>Driver & vehicle details confirmed before pickup.</p>
+                    </div>
+                    <div class="workflow-card">
+                        <span class="step-num">03</span>
+                        <h3>Track</h3>
+                        <p>GPS live for the entire journey.</p>
+                    </div>
+                    <div class="workflow-card">
+                        <span class="step-num">04</span>
+                        <h3>Arrive</h3>
+                        <p>Auto check-in on safe arrival.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="emergency-banner">
+                <div class="emergency-left">
+                    <div class="alert-icon">⚠️</div>
+                    <div class="emergency-text">
+                        <h3>Emergency? We're on it.</h3>
+                        <p>24/7 helpline with response teams across all covered routes.</p>
+                    </div>
+                </div>
+                <div class="emergency-right">
+                    <a href="tel:+2347040359036" class="btn-emergency">📞 Call 0700-TRUB-HELPLINE</a>
+                </div>
+            </section>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <p>&copy; 2026 TRUB (TransitHub). All rights reserved.</p>
+            <p class="author-credit">Designed by 🌸 Temidayo Olukayode E. 🌸 Nigeria</p>
+            <p class="reference-link"><a href="references.html">Project Citations & References</a></p>
+        </div>
+    </footer>
+
 </body>
 
 </html>

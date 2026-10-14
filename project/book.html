@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TRUB - Book & Pay</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <script src="scripts/script.js" defer></script>
+</head>
+
+<body>
+
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo">TRUB <span>TransitHub</span></a>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">☰</button>
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="agencies.html">Agencies</a></li>
+                    <li><a href="tracking.html">Live Tracking</a></li>
+                    <li><a href="book.html" class="active">Book & Pay</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <h1>Secure Trip Booking</h1>
+            <p>Complete the form below with your passenger information and select your preferred secure payment method
+                to finalize your booking destination details.</p>
+        </section>
+
+        <section class="booking-form-container"
+            style="background-color: #ffffff; padding: 2.5rem; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); max-width: 600px; margin: 2rem auto;">
+            <!-- Changed form class to unique name to fix flex styling conflicts -->
+            <form id="bookingForm" class="checkout-form" style="display: flex; flex-direction: column; gap: 1.5rem;">
+
+                <fieldset style="border: 1px solid #E2E8F0; padding: 1.5rem; border-radius: 6px; text-align: left;">
+                    <legend
+                        style="font-weight: bold; color: var(--primary-color); padding: 0 0.5rem; font-family: var(--heading-font);">
+                        Passenger Specifications</legend>
+
+                    <div class="form-group"
+                        style="margin-bottom: 1rem; display: flex; flex-direction: column; gap: 0.5rem;">
+                        <label for="fullName" style="font-weight: bold; color: var(--primary-color);">Full Name</label>
+                        <input type="text" id="fullName" name="fullName" placeholder="First and Last Name"
+                            style="padding: 0.75rem; border: 1px solid #CCC; border-radius: 8px; font-size: 1rem; width: 100%;"
+                            required>
+                    </div>
+
+                    <div class="form-group"
+                        style="margin-bottom: 1rem; display: flex; flex-direction: column; gap: 0.5rem;">
+                        <label for="emailAddress" style="font-weight: bold; color: var(--primary-color);">Email
+                            Address</label>
+                        <input type="email" id="emailAddress" name="emailAddress" placeholder="name@gmail.com"
+                            style="padding: 0.75rem; border: 1px solid #CCC; border-radius: 8px; font-size: 1rem; width: 100%;"
+                            required>
+                    </div>
+
+                    <div class="form-group" style="display: flex; flex-direction: column; gap: 0.5rem;">
+                        <label for="phoneNumber" style="font-weight: bold; color: var(--primary-color);">Phone
+                            Number</label>
+                        <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="e.g., +234..."
+                            style="padding: 0.75rem; border: 1px solid #CCC; border-radius: 8px; font-size: 1rem; width: 100%;"
+                            required>
+                    </div>
+                </fieldset>
+
+                <fieldset style="border: 1px solid #E2E8F0; padding: 1.5rem; border-radius: 6px; text-align: left;">
+                    <legend
+                        style="font-weight: bold; color: var(--primary-color); padding: 0 0.5rem; font-family: var(--heading-font);">
+                        Trip Options</legend>
+
+                    <div class="form-group"
+                        style="margin-bottom: 1rem; display: flex; flex-direction: column; gap: 0.5rem;">
+                        <label for="selectAgency" style="font-weight: bold; color: var(--primary-color);">Transit
+                            Provider</label>
+                        <select id="selectAgency" name="selectAgency"
+                            style="padding: 0.75rem; border: 1px solid #ccc; border-radius: 8px; font-family: var(--body-font); font-size: 1rem; width: 100%; background-color: #fff;"
+                            required>
+                            <option value="">-- Choose Agency --</option>
+                            <option value="express">Express Transit</option>
+                            <option value="intercity">InterCity Lines</option>
+                            <option value="delta">Delta Commuters</option>
+                            <option value="ecoshuttle">EcoShuttle Nigeria</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group" style="display: flex; flex-direction: column; gap: 0.5rem;">
+                        <label for="seatPreference" style="font-weight: bold; color: var(--primary-color);">Seat Area
+                            Preference</label>
+                        <select id="seatPreference" name="seatPreference"
+                            style="padding: 0.75rem; border: 1px solid #ccc; border-radius: 8px; font-family: var(--body-font); font-size: 1rem; width: 100%; background-color: #fff;">
+                            <option value="standard">Standard Window</option>
+                            <option value="aisle">Standard Aisle</option>
+                            <option value="front">Front Row Comfort</option>
+                        </select>
+                    </div>
+                </fieldset>
+
+
+                <fieldset style="border: 1px solid #ddd; padding: 1.5rem; border-radius: 6px; margin-bottom: 1.5rem;">
+                    <legend style="font-weight: bold; color: var(--primary-color); padding: 0 0.5rem;">Trip Options
+                    </legend>
+
+                    <div class="form-group" style="margin-bottom: 1rem;">
+                        <label for="selectAgency">Transit Provider</label>
+                        <select id="selectAgency" name="selectAgency"
+                            style="padding: 0.75rem; border: 1px solid #ccc; border-radius: 8px; font-family: var(--body-font); font-size: 1rem;"
+                            required>
+                            <option value="">-- Choose Agency --</option>
+                            <option value="express">Express Transit</option>
+                            <option value="intercity">InterCity Lines</option>
+                            <option value="delta">Delta Commuters</option>
+                            <option value="ecoshuttle">EcoShuttle Nigeria</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group" style="margin-bottom: 1rem;">
+                        <label for="seatPreference">Seat Area Preference</label>
+                        <select id="seatPreference" name="seatPreference"
+                            style="padding: 0.75rem; border: 1px solid #ccc; border-radius: 8px; font-family: var(--body-font); font-size: 1rem;">
+                            <option value="standard">Standard Window</option>
+                            <option value="aisle">Standard Aisle</option>
+                            <option value="front">Front Row Comfort</option>
+                        </select>
+                    </div>
+                </fieldset>
+
+                <fieldset style="border: 1px solid #ddd; padding: 1.5rem; border-radius: 6px; margin-bottom: 1.5rem;">
+                    <legend style="font-weight: bold; color: var(--primary-color); padding: 0 0.5rem;">Payment Gateway
+                    </legend>
+
+                    <div style="display: flex; flex-direction: column; gap: 0.75rem; margin-top: 0.5rem;">
+                        <label
+                            style="display: flex; align-items: center; gap: 0.5rem; font-weight: normal; cursor: pointer;">
+                            <input type="radio" name="paymentMethod" value="card" checked> 💳 Credit / Debit Card
+                        </label>
+                        <label
+                            style="display: flex; align-items: center; gap: 0.5rem; font-weight: normal; cursor: pointer;">
+                            <input type="radio" name="paymentMethod" value="transfer"> 🏦 Direct Bank Transfer
+                        </label>
+                        <label
+                            style="display: flex; align-items: center; gap: 0.5rem; font-weight: normal; cursor: pointer;">
+                            <input type="radio" name="paymentMethod" value="ussd"> 📱 USSD Gateway Code
+                        </label>
+                    </div>
+                </fieldset>
+
+                <button type="submit" class="btn-find" style="width: 100%;">Confirm Booking & Pay</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <p>&copy; 2026 TRUB (TransitHub). All rights reserved.</p>
+            <p class="author-credit">Designed by 🌸 Temidayo Olukayode E. 🌸 Nigeria</p>
+            <p class="reference-link"><a href="references.html">Project Citations & References</a></p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
