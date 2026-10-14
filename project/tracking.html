@@ -4,7 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TRUB - Live Fleet Tracking</title>
+    <meta name="description"
+        content="TRUB TransitHub - Discover, compare, and book reliable inter-state transit across Nigeria. Check dynamic shared car or private vehicle fares and track your fleet location live via GPS.">
+    <meta name="author" content="Temidayo Olukayode E.">
+    <title>TRUB - TransitHub Home</title>
     <link rel="stylesheet" href="styles/styles.css">
     <script src="scripts/script.js" defer></script>
 </head>
@@ -14,7 +17,7 @@
     <!-- Header Section -->
     <header>
         <div class="header-container">
-            <a href="index.html" class="logo">TRUB <span>TransitHub</span></a>
+            <a href="index.html" class="logo">TRUB</a>
             <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">☰</button>
             <nav id="mainNav">
                 <ul>
@@ -31,40 +34,41 @@
         <section class="page-header">
             <h1>Live Journey & Fleet Tracking</h1>
             <p>Monitor active transportation routes, vehicle locations, and trip progress via real-time satellite
-                updates.</p>
+                updates.
+            </p>
         </section>
 
-        <!-- Active Tracking Workspace Layout -->
         <section class="tracking-container"
             style="display: grid; grid-template-columns: 1fr; gap: 2rem; margin-top: 2rem;">
 
-            <!-- Quick Selection Dropdown to fulfill array interaction requirements -->
             <div class="tracker-selector-box"
                 style="background-color: #fff; padding: 1.5rem; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
                 <label for="agencySelect"
                     style="font-weight: bold; color: var(--primary-color); display: block; margin-bottom: 0.5rem;">Select
-                    an Agency to Track Live:</label>
+                    an
+                    Agency to Track Live:</label>
                 <select id="agencySelect"
                     style="padding: 0.75rem; width: 100%; max-width: 400px; border-radius: 8px; border: 1px solid #ccc; font-family: var(--body-font); font-size: 1rem;">
                     <option value="">-- Choose Active Agency Fleet --</option>
-                    <option value="Express Transit">Express Transit (Active)</option>
-                    <option value="InterCity Lines">InterCity Lines (Active)</option>
-                    <option value="Delta Commuters">Delta Commuters (Active)</option>
-                    <option value="EcoShuttle Nigeria">EcoShuttle Nigeria (No GPS)</option>
+                    <option value="Express Transit">Express Transit</option>
+                    <option value="InterCity Lines">InterCity Lines</option>
+                    <option value="Delta Commuters">Delta Commuters</option>
+                    <option value="EcoShuttle Nigeria">EcoShuttle Nigeria</option>
                 </select>
             </div>
 
-            <!-- Dynamic Interface Output Generated clean by script.js -->
+            <!-- This wrapper ID is what the JavaScript targets to load the tracking card -->
             <div id="trackingDashboard" class="dashboard-display">
-                <div class="stat-card" style="text-align: left; border-top: 4px solid var(--primary-color);">
+                <div class="stat-card"
+                    style="text-align: left; border-top: 4px solid var(--primary-color); padding: 1.5rem; background:#fff; border-radius:8px;">
                     <h3>No Active Fleet Selected</h3>
-                    <p>Please select an agency from the drop-down selector above or click a tracking anchor from the
-                        Agencies page to map real-time progress paths.</p>
+                    <p>Please select an agency from the drop-down selector above to map real-time progress paths.</p>
                 </div>
             </div>
 
         </section>
     </main>
+
 
     <!-- Footer Section -->
     <footer>

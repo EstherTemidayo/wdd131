@@ -4,16 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="TRUB TransitHub - Discover, compare, and book reliable inter-state transit across Nigeria. Check dynamic shared car or private vehicle fares and track your fleet location live via GPS.">
+    <meta name="author" content="Temidayo Olukayode E.">
     <title>TRUB - TransitHub Home</title>
     <link rel="stylesheet" href="styles/styles.css">
     <script src="scripts/script.js" defer></script>
 </head>
 
+
 <body>
 
     <header>
         <div class="header-container">
-            <a href="index.html" class="logo">TRUB <span>TransitHub</span></a>
+            <a href="index.html" class="logo">TRUB</a>
 
             <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">
                 ☰
@@ -126,17 +130,19 @@
                 </div>
             </section>
 
+            <!-- How TRUB Works Section  -->
             <section class="steps-section">
                 <h2>How TRUB Works</h2>
-                <ol class="steps-list">
-                    <li><strong>Search:</strong> Provide departure terminals, dates, and group metrics.</li>
-                    <li><strong>Compare:</strong> Evaluate vendor fees, speed ratings, and seat formats.</li>
-                    <li><strong>Book:</strong> Lock down preferred choices and detail travel lists.</li>
-                    <li><strong>Pay:</strong> Complete processing safely through protected transaction portals.</li>
-                    <li><strong>Track:</strong> Oversee fleet paths dynamically throughout live itineraries.</li>
-                </ol>
+                <div class="steps-wrapper">
+                    <p><strong>Search:</strong> Provide departure terminals, dates, and group metrics.</p>
+                    <p><strong>Compare:</strong> Evaluate vendor fees, speed ratings, and seat formats.</p>
+                    <p><strong>Book:</strong> Lock down preferred choices and detail travel lists.</p>
+                    <p><strong>Pay:</strong> Complete processing safely through protected transaction portals.</p>
+                    <p><strong>Track:</strong> Oversee fleet paths dynamically throughout live itineraries.</p>
+                </div>
             </section>
 
+            <!-- Featured Agencies Section -->
             <section class="agencies-preview-section">
                 <h2>Featured Agencies</h2>
                 <div id="dynamicAgencies" class="agencies-grid"></div>

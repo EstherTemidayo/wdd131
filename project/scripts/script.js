@@ -63,89 +63,12 @@ function displayAgencies(agenciesList, targetContainer) {
                     <span class="tag gps">${agency.gps ? "📡 Active GPS" : "❌ No GPS"}</span>
                 </div>
                 <p>Operating context: <strong>${agency.region}</strong> network paths.</p>
-                <p>Standard rate: <strong>${agency.fare}</strong></p>
                 <a href="tracking.html?agency=${encodeURIComponent(agency.name)}" class="text-link">Track Fleet →</a>
             </div>
         `;
     });
 
     targetContainer.innerHTML = htmlContent;
-}
-
-function initSearchTracker() {
-    const searchForm = document.getElementById("searchForm");
-    if (!searchForm) return;
-
-    searchForm.addEventListener("submit", (event) => {
-        event.preventDefault();
-
-        const fromValue = document.getElementById("fromLocation").value;
-        const toValue = document.getElementById("toLocation").value;
-        const dateInput = document.getElementById("travelDate").value;
-        const carriage = document.getElementById("carriageType").value;
-        const passengerCount = parseInt(document.getElementById("passengers").value) || 1;
-
-        let totalCalculatedFare = 0;
-        let pricingModelNote = "";
-        let travelTimeText = "";
-
-        if (fromValue === toValue) {
-            const hours = 3;
-            totalCalculatedFare = 2500 * hours * passengerCount;
-            travelTimeText = `${hours} Hours (Local Loop)`;
-            pricingModelNote = "Calculated via EcoShuttle local rate (₦2,500/hr).";
-        } else if (
-            (fromValue.includes("Central") && toValue.includes("East")) ||
-            (fromValue.includes("East") && toValue.includes("Central"))
-        ) {
-            if (carriage === "shared") {
-                totalCalculatedFare = 35000 * passengerCount;
-                pricingModelNote = "Central-East Shared rate (₦35,000 per seat).";
-            } else {
-                totalCalculatedFare = 100000;
-                pricingModelNote = "Central-East Private Individual Vehicle flat rate.";
-            }
-            travelTimeText = "6.5 Hours estimated transit";
-        } else if (fromValue.includes("North") || toValue.includes("North")) {
-            if (carriage === "shared") {
-                totalCalculatedFare = 42000 * passengerCount;
-                pricingModelNote = "Northern Cardinal Corridor Shared rate.";
-            } else {
-                totalCalculatedFare = 120000;
-                pricingModelNote = "Northern Cardinal Corridor Private Individual vehicle rate.";
-            }
-            travelTimeText = "8.5 Hours estimated transit";
-        } else {
-            totalCalculatedFare = 22000 * passengerCount;
-            pricingModelNote = "Standard inter-state transit connection rate.";
-            travelTimeText = "5.0 Hours estimated transit";
-        }
-
-        const currentSearch = {
-            from: fromValue,
-            to: toValue,
-            date: dateInput,
-            carriageType: carriage,
-            passengers: passengerCount,
-            calculatedFare: totalCalculatedFare,
-            timestamp: new Date().toLocaleDateString()
-        };
-
-        localStorage.setItem("trub_last_search", JSON.stringify(currentSearch));
-
-        const resultContainer = document.getElementById("searchResultDisplay");
-        if (resultContainer) {
-            resultContainer.innerHTML = `
-                <div class="benefit-item" style="border-left: 4px solid var(--secondary-color); margin-top: 1.5rem; background: #fff; padding: 1.5rem; border-radius: 8px; text-align: left;">
-                    <h3 style="color: var(--secondary-color); margin-bottom: 0.5rem;">📋 Booking Fare Calculated</h3>
-                    <p>Route: <strong>${fromValue}</strong> ➔ <strong>${toValue}</strong></p>
-                    <p>Expected Duration: <strong>${travelTimeText}</strong></p>
-                    <p>Total Fare Matrix: <strong style="color: var(--primary-color); font-size: 1.25rem;">₦${totalCalculatedFare.toLocaleString()}</strong></p>
-                    <p style="font-size: 0.85rem; color: #666; margin-top: 0.5rem; border-top: 1px dashed #ddd; padding-top: 0.5rem;">*${pricingModelNote}</p>
-                </div>
-            `;
-        }
-    });
 }
 
 function initSearchTracker() {
@@ -193,14 +116,12 @@ function initSearchTracker() {
             const estimatedHours = parseFloat((cardinalDistance * 3.5).toFixed(1));
             travelTimeText = `${estimatedHours} Hours estimated transit`;
 
-            // Enforcing your strict carriage type rules
             if (carriage === "shared") {
                 const hiddenHourlyRate = 3500;
                 const baseRouteCost = estimatedHours * hiddenHourlyRate;
                 totalCalculatedFare = Math.round(baseRouteCost * passengerCount);
                 pricingModelNote = "Standard shared corridor transit carriage fare.";
             } else {
-                // Maintained strict flat rate for all long-distance private options
                 totalCalculatedFare = 100000;
                 pricingModelNote = "Private individual vehicle flat rate routing.";
             }
@@ -233,6 +154,25 @@ function initSearchTracker() {
     });
 }
 
+function initLiveTrackerPage() {
+    const selector = document.getElementById("agencySelect");
+    const dashboard = document.getElementById("trackingDashboard");
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const preSelectedAgency = urlParams.get('agency');
+
+    if (preSelectedAgency) {
+        const matched = agencyData.find(item => preSelectedAgency.includes(item.name) || item.name.includes(preSelectedAgency));
+        if (matched) {
+            selector.value = matched.name;
+            updateTrackingView(matched.name, dashboard);
+        }
+    }
+
+    selector.addEventListener("change", (e) => {
+        updateTrackingView(e.target.value, dashboard);
+    });
+}
 
 function updateTrackingView(agencyName, displayContainer) {
     if (!agencyName) {
@@ -244,12 +184,12 @@ function updateTrackingView(agencyName, displayContainer) {
         return;
     }
 
-    const matchedFleet = agencyData.find(item => item.name === agencyName);
+    const matchedFleet = agencyData.find(item => agencyName.includes(item.name) || item.name.includes(agencyName));
 
-    if (!matchedFleet.gps) {
+    if (!matchedFleet || !matchedFleet.gps) {
         displayContainer.innerHTML = `
             <div class="stat-card" style="text-align: left; border-top: 4px solid #c62828; padding: 1.5rem; background:#fff; border-radius:8px;">
-                <h3 style="color: #c62828;">📡 Tracking Offline: ${matchedFleet.name}</h3>
+                <h3 style="color: #c62828;">📡 Tracking Offline: ${agencyName}</h3>
                 <p>This agency does not currently support active satellite telemetry streams on our marketplace network.</p>
             </div>`;
         return;
@@ -267,7 +207,7 @@ function updateTrackingView(agencyName, displayContainer) {
             </div>
             
             <div style="background: #eec15c20; padding: 1rem; border-radius: 6px; margin-bottom: 1.5rem;">
-                <p style="margin: 0;"><strong>Active Route Telemetry Status:</strong> Vehicle en route across ${matchedFleet.region.toLowerCase()} network grids.</p>
+                <p style="margin: 0;"><strong>Active Route Telemetry Status:</strong> Vehicle en route across ${matchedFleet.region} network paths.</p>
             </div>
 
             <div class="progress-bar-container" style="background: #e0e0e0; border-radius: 10px; height: 12px; width: 100%; margin: 1rem 0; overflow: hidden;">
@@ -276,9 +216,5 @@ function updateTrackingView(agencyName, displayContainer) {
             
             <div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; margin-top: 1rem;">
                 <div id="liveProgressText"><strong>Current Journey Progress:</strong> ${progressPercent}% Completed</div>
-                <div id="liveEtaText"><strong>Estimated Time of Arrival (ETA):</strong> ${etaHours} Hours remaining</div>
-            </div>
-        </div>
-    `;
+`;
 }
-
